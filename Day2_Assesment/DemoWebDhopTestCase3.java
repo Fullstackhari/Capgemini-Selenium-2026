@@ -89,7 +89,8 @@ public class DemoWebDhopTestCase3 {
         } else {
             System.out.println("Alert message is NOT visible AFTER clicking Apply Coupon");
         }
-        
+
+		//Taking the Screenshot of the Added Laptop To the Cart
         WebElement img = driver.findElement(By.xpath("//div[@class='page shopping-cart-page']/descendant::img[@alt='Picture of 14.1-inch Laptop']"));
 		File src=img.getScreenshotAs(OutputType.FILE);
 		File dest=new File("./Screenshot/laptop.png");
