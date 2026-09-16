@@ -50,7 +50,7 @@ public class Pom_Candidates {
 	@FindBy(xpath="//button[@type=\"submit\"]")
 	private WebElement search;
 	
-	@FindBy(xpath="//div[@class=\"oxd-table-body\"]/descendant:::div[text()=\"Sugali Rahul Naik\"]")
+	@FindBy(xpath="//div[@class=\"oxd-table-body\"]/descendant:::div[text()=\"C Harindra\"]")
 	private WebElement applicant;
 	
 	@FindBy(xpath="//i[@class=\"oxd-icon bi-caret-down-fill oxd-userdropdown-icon\"]")
