@@ -58,6 +58,12 @@ public class Pom_Candidates {
 	
 	@FindBy(xpath="//a[@class=\"oxd-userdropdown-link\" and text()=\"Logout\"]")
 	private WebElement logout;
+
+	@FindBy(xpath="//span[text()='(1) Record Found']")
+	private WebElement record;
+	
+	@FindBy(xpath="(//div[@class='oxd-table-row oxd-table-row--with-border'])[2]/descendant::div[@role='cell']/descendant::div[text()]\"")
+	private WebElement recorddetails;
 	
 	public void getCandidate() {
 		 candidate.click();;
@@ -106,6 +112,22 @@ public class Pom_Candidates {
 	public void getSearch() throws InterruptedException {
 		 search.click();
 		 Thread.sleep(3000);
+	}
+
+	public void getRecord() {
+		if(record.isDisplayed()) {
+			System.out.println("Record Found Successfully");
+		}else {
+			System.out.println("Record Not found");
+		}
+	}
+
+	public void getRecorddetails() {
+		System.out.println("-------------Record Details are--------------");
+		List<WebElement> recordetails = driver.findElements(By.xpath("(//div[@class='oxd-table-row oxd-table-row--with-border'])[2]/descendant::div[@role='cell']/descendant::div[text()]"));
+		for(WebElement ele:recordetails) {
+				System.out.println(ele.getText());
+		}
 	}
 	
 	
