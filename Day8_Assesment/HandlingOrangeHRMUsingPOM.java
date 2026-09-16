@@ -111,21 +111,9 @@ public class HandlingOrangeHRMUsingPOM {
 		Thread.sleep(3000);
 		p3.getdate();
 		p3.getSearch();
-		
-		Thread.sleep(2000);
-		WebElement recordfound = driver.findElement(By.xpath("//span[text()='(1) Record Found']"));
-		if(recordfound.isDisplayed()) {
-			System.out.println("Record Found Successfully");
-		}else {
-			System.out.println("Record Not found");
-		}
-		
-		Thread.sleep(1000);
-		List<WebElement> recordetails = driver.findElements(By.xpath("(//div[@class='oxd-table-row oxd-table-row--with-border'])[2]/descendant::div[@role='cell']/descendant::div[text()]"));
-		System.out.println("-------------Record Details are--------------");
-		for(WebElement ele:recordetails) {
-				System.out.println(ele.getText());
-		}
+		p3.getRecord();
+		p3.getRecorddetails();
+	
 	
 		
 	}
