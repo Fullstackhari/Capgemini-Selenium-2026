@@ -27,19 +27,18 @@ public class HandlingOrangeHRMUsingPOM {
 		Properties p = new Properties();
 		p.load(fis);
 		
-		//properties file
+		//Reading Data From Properties file
 		String BROWSER = p.getProperty("browser");
 		String URL = p.getProperty("url");
 		String USERNAME = p.getProperty("username");
 		String PASSWORD = p.getProperty("pass");
 		
-		//excelfile
+		//Reading Data From Excel File
 		FileInputStream fis1 = new FileInputStream("./src/test/resources/Day8_Resources/Day8.xlsx");
 		Workbook wb = WorkbookFactory.create(fis1);
 		String FirstName = wb.getSheet("Sheet1").getRow(1).getCell(0).getStringCellValue();
 		String Lastname = wb.getSheet("Sheet1").getRow(1).getCell(1).getStringCellValue();
 		String Email = wb.getSheet("Sheet1").getRow(1).getCell(2).getStringCellValue();
-		//double PhoneNumber = wb.getSheet("Sheet1").getRow(1).getCell(4).getNumericCellValue();
 		String CName = wb.getSheet("Sheet1").getRow(1).getCell(4).getStringCellValue();
 		
 		WebDriver driver = null;
@@ -49,14 +48,15 @@ public class HandlingOrangeHRMUsingPOM {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(URL);
-		//login
-		PomLogin p1 =new PomLogin(driver);
+		
+		//Performing Login Action in 
+ 		PomLogin p1 =new PomLogin(driver);
 		p1.getUn(USERNAME);
 		p1.getPwd(PASSWORD);
 		p1.getLgbutton();
 		
 		Pom_Recruiter p2 = new Pom_Recruiter(driver);
-		//click on recruiter
+		//click on recruiter button
 		p2.getRecruitmrnt();
 		//click on add
 		p2.getAddbutton();
@@ -66,10 +66,8 @@ public class HandlingOrangeHRMUsingPOM {
 		p2.getLname(Lastname);
 		//email
 		p2.getEmail(Email);
-		//phno
-		//p2.getPhno(PhoneNumber);
 		
-		//vacancy
+		//Perfroming action on vacancy Field
 		p2.getVacancy().click();
 		Thread.sleep(3000);
 		Robot robot = new Robot();
@@ -77,13 +75,14 @@ public class HandlingOrangeHRMUsingPOM {
 		robot.keyRelease(KeyEvent.VK_DOWN);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		//resume
+		
+		//Uploading resume
 		Thread.sleep(5000);
 		p2.getResume("C:\\Users\\harin\\OneDrive\\Desktop\\C_Harindra_Resume.pdf");
 		Thread.sleep(2000);
 		p2.getSave();
 		
-		Pom_Candidates p3 = new Pom_Candidates(driver);
+		Pom_Candidates p3= new Pom_Candidates(driver);
 		p3.getCandidate();
 		
 		Thread.sleep(3000);
