@@ -35,65 +35,6 @@ public class SauceDemoProductPomPage {
 		AddTocartbtn.click();
 	}
 	
-	@FindBy(xpath="//a[@id='item_4_title_link']/descendant::div[text()='Sauce Labs Backpack']")
-	private WebElement ProductNameVerification;
-	public void getProductNameVerification() {
-		if(ProductNameVerification.isDisplayed()) {
-			System.out.println("SauceLabs BackPack is Displayed");
-		}else {
-			System.out.println("SauceLabs BackPack is not Displayed");
-		}
-	}
-	
-	@FindBy(id="checkout")
-	private WebElement CheckOutBtn;
-	public void getCheckOutBtn() {
-		CheckOutBtn.click();
-	}
-	
-	
-	@FindBy(id="first-name")
-	private WebElement checkoutFirstname;
-	public void getCheckoutFirstname(String first) {
-		checkoutFirstname.sendKeys(first);;
-	}
-	
-	
-	@FindBy(id="last-name")
-	private WebElement checkoutLastname;
-	public void getCheckoutLastname(String last) {
-		checkoutLastname.sendKeys(last);
-	}
-	
-	
-	@FindBy(id="postal-code")
-	private WebElement checkoutPostal;
-	public void getCheckoutPostal(String zip) {
-		checkoutPostal.sendKeys(zip);
-	}
-	
-	
-	@FindBy(id="continue")
-	private WebElement Continue;
-	public void getContinue() {
-		Continue.submit();
-	}
-	
-	@FindBy(xpath="//span[text()='Checkout: Overview']")
-	private WebElement Checkoutpagevalidation;
-	public void getCheckoutpagevalidation() {
-		if(Checkoutpagevalidation.isDisplayed()) {
-			System.out.println("Checkout Overview Page Displayed Successfully");
-		}else {
-			System.out.println("CheckOut page is not Displayed");
-		}
-	}
-	
-	@FindBy(id="finish")
-	private WebElement finishBtn;
-	public void getFinishBtn() {
-		finishBtn.click();
-	}
 	
 	@FindBy(xpath="//h2[text()='Thank you for your order!']")
 	private WebElement ThankyouMessage;
@@ -104,19 +45,6 @@ public class SauceDemoProductPomPage {
 			System.out.println("Thank You Message is not Displayed");
 		}
 	}
-	
-	@FindBy(id="react-burger-menu-btn")
-	private WebElement Hamburgerbtn;
-	public void getHamburgerbtn() {
-		Hamburgerbtn.click();;
-	}
-	
-	@FindBy(linkText = "Logout")
-	private WebElement Logoutbtn;
-	public void getLogoutbtn() {
-		Logoutbtn.click();;
-	}
-	
 
 	
 	

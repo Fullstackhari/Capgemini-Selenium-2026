@@ -27,7 +27,7 @@ import org.testng.annotations.BeforeTest;
 
 public class SauceDemoTestNgAnnotataions {
 	
-	WebDriver driver=null;
+	protected WebDriver driver=null;
 	
 	@BeforeSuite
 	public void DataBaseEstablishment() {
@@ -81,39 +81,6 @@ public class SauceDemoTestNgAnnotataions {
 		sd.getLoginbtn();
 		System.out.println("Login Succesfull");
 		sd.getProductpage();
-		
-	}
-	
-	@BeforeMethod(dependsOnMethods = "LoginTest")
-	public void oderPalcementTest() throws InterruptedException, EncryptedDocumentException, IOException {
-		FileInputStream excel=new FileInputStream("./src/main/java/Day10_Utilities/SauceDemoDay10.xlsx");
-		Workbook wb = WorkbookFactory.create(excel);
-		String firstname = wb.getSheet("Sheet1").getRow(1).getCell(0).getStringCellValue();
-		String lasttname = wb.getSheet("Sheet1").getRow(1).getCell(1).getStringCellValue();
-		DataFormatter formatter = new DataFormatter();
-		String zipcode = formatter.formatCellValue(wb.getSheet("Sheet1").getRow(1).getCell(2));
-		SauceDemoProductPomPage pp=new SauceDemoProductPomPage(driver);
-		pp.getProductAddtoCart();
-		pp.getOneItemInProduct();
-		Thread.sleep(2000);
-		pp.getAddTocartbtn();
-		pp.getProductNameVerification();
-		Thread.sleep(2000);
-		pp.getCheckOutBtn();
-		Thread.sleep(1000);
-		pp.getCheckoutFirstname(firstname);
-		Thread.sleep(500);
-		pp.getCheckoutLastname(lasttname);
-		Thread.sleep(500);
-		pp.getCheckoutPostal(zipcode);
-		Thread.sleep(1000);
-		pp.getContinue();
-		pp.getCheckoutpagevalidation();
-		Thread.sleep(1000);
-		pp.getFinishBtn();
-		pp.getThankyouMessage();
-		System.out.println("Successfully completed order placement");
-		Thread.sleep(2000);
 		
 	}
 	
